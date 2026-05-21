@@ -1,0 +1,30 @@
+{
+  "name": "Chemistry",
+  "type": "folder",
+  "children": [
+    {
+      "name": "Chemistry - Arihant Master the NCERT.pdf",
+      "type": "file",
+      "id": "1inSkTp7yGO-eJK5J0skeiUWu-TiUtHhP",
+      "path": "ISC - XI / Chemistry"
+    },
+    {
+      "name": "Chemistry - Arihant NCERT Solutions.pdf",
+      "type": "file",
+      "id": "16fbDqo8kABK-dCTkA1-KMITZJQVmNURW",
+      "path": "ISC - XI / Chemistry"
+    },
+    {
+      "name": "Chemistry - Formula Sheet.pdf",
+      "type": "file",
+      "id": "1H1WortJvsZFK-brzpo3lfk4UIjGrnmbU",
+      "path": "ISC - XI / Chemistry"
+    },
+    {
+      "name": "Chemistry - Modern ABC.pdf",
+      "type": "file",
+      "id": "1aK3gmFXFqy5VyIvBP86-rfS9dYsgTKmh",
+      "path": "ISC - XI / Chemistry"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Physics",
+  "type": "folder",
+  "children": [
+    {
+      "name": "Physics - Errorless.pdf",
+      "type": "file",
+      "id": "179oQmMSd3fHy1kFX9BM_d5rNp-IQr8pl",
+      "path": "ISC - XI / Physics"
+    },
+    {
+      "name": "Physics - Formula Sheet.pdf",
+      "type": "file",
+      "id": "10xLOcGva_bNSpxBFRIVUHPUnZSE8V8kN",
+      "path": "ISC - XI / Physics"
+    },
+    {
+      "name": "Physics - Handwritten Notes.pdf",
+      "type": "file",
+      "id": "1aCxTE8EJ6H6b7VhLiq1h5Crur-G-fwmI",
+      "path": "ISC - XI / Physics"
+    },
+    {
+      "name": "Physics - Important Derivations.pdf",
+      "type": "file",
+      "id": "1d-5iQJHOqiVjJ9GLl8sTI4ZPXVbIsABo",
+      "path": "ISC - XI / Physics"
+    },
+    {
+      "name": "Physics - Modern ABC Vol. 2.pdf",
+      "type": "file",
+      "id": "1j6poonlzNCdiL0NT3LRUzvQ-RALOrjXh",
+      "path": "ISC - XI / Physics"
+    },
+    {
+      "name": "Physics - SL Arora Vol. 1.pdf",
+      "type": "file",
+      "id": "1jySd4Gf-H7nplzWl2nPH43AXYTP4eZM9",
+      "path": "ISC - XI / Physics"
+    },
+    {
+      "name": "Physics - SL Arora Vol. 2.pdf",
+      "type": "file",
+      "id": "1afKjGCHcM7nVllZ3hgug7WKbspF5otUe",
+      "path": "ISC - XI / Physics"
+    }
+  ]
+}

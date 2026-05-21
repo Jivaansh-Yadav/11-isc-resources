@@ -1,0 +1,30 @@
+{
+  "name": "Maths",
+  "type": "folder",
+  "children": [
+    {
+      "name": "Maths - Formula Sheet.pdf",
+      "type": "file",
+      "id": "1iR28o9kco_uUfzMNgPeyeWFY_EbRf58O",
+      "path": "ISC - XI / Maths"
+    },
+    {
+      "name": "Maths - R.D. Sharma Vol. 1.pdf",
+      "type": "file",
+      "id": "1vNhXEJ8MnECZZS-txNvrae63M9Rr38r1",
+      "path": "ISC - XI / Maths"
+    },
+    {
+      "name": "Maths - R.D. Sharma Vol. 2.pdf",
+      "type": "file",
+      "id": "13C4WxEUMznIz1xw0TFtjIwISU1cGCv8y",
+      "path": "ISC - XI / Maths"
+    },
+    {
+      "name": "Maths - S. Chand.pdf",
+      "type": "file",
+      "id": "1oA7dMjDQ2QepIB0mRp3jeRcldE_iGJV4",
+      "path": "ISC - XI / Maths"
+    }
+  ]
+}
