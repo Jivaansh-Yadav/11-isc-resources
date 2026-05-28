@@ -3,9 +3,111 @@
   "type": "folder",
   "children": [
     {
-      "name": "English Language - Total English - Teacher's Handbook.pdf",
+      "name": "Language",
+      "type": "folder",
+      "children": [
+        {
+          "name": "English Language - 60 Essays - SWS.pdf",
+          "type": "file",
+          "id": "1X3wEr2cxcWHTWfmTRwB1RsMCODqNHUeq",
+          "path": "ISC - XI / English / Language"
+        },
+        {
+          "name": "English Language - Total English - Teacher's Handbook.pdf",
+          "type": "file",
+          "id": "13Kv1NSKnUGC9wsmzEymJVuiMZQLcf6Mi",
+          "path": "ISC - XI / English / Language"
+        }
+      ]
+    },
+    {
+      "name": "Literature",
+      "type": "folder",
+      "children": [
+        {
+          "name": "Macbeth",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Macbeth - Course Hero.pdf",
+              "type": "file",
+              "id": "1kD3mIv9b_7P3FV-jy7K1gZAqiJOapfuO",
+              "path": "ISC - XI / English / Literature / Macbeth"
+            },
+            {
+              "name": "Macbeth - LitChart.pdf",
+              "type": "file",
+              "id": "1yf-uBiaZujnNoLry6WTxasG6Fc3Zt981",
+              "path": "ISC - XI / English / Literature / Macbeth"
+            },
+            {
+              "name": "Macbeth - New Critical Essays.pdf",
+              "type": "file",
+              "id": "1B7YEOSq3J9j7zwbxoY1AhImXWZDZxH4K",
+              "path": "ISC - XI / English / Literature / Macbeth"
+            },
+            {
+              "name": "Macbeth - Shakescleare Translation.pdf",
+              "type": "file",
+              "id": "1qavkC0G6X9TvPZPYE_PUNE951xCgkAUi",
+              "path": "ISC - XI / English / Literature / Macbeth"
+            }
+          ]
+        },
+        {
+          "name": "Prism",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Prism - Thank You Ma'am.pdf",
+              "type": "file",
+              "id": "1FNymnkpCr5985Zi7RH3RPHBDJ_PsvNxR",
+              "path": "ISC - XI / English / Literature / Prism"
+            },
+            {
+              "name": "Prism - The Great Automatic Grammatizator.pdf",
+              "type": "file",
+              "id": "1GTgropTGzevjrQb4f9jqCkKog9y2YMX7",
+              "path": "ISC - XI / English / Literature / Prism"
+            },
+            {
+              "name": "Prism - The Paper Menagerie.pdf",
+              "type": "file",
+              "id": "1lMBsQkLIuTLf1tNSxnjeghhsCxvor8Cz",
+              "path": "ISC - XI / English / Literature / Prism"
+            }
+          ]
+        },
+        {
+          "name": "Rhapsody",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Rhapsody - Death of a Naturalist.pdf",
+              "type": "file",
+              "id": "1RWONd9cMQ6Sq7CpxGdfzAedzYcXOxuX0",
+              "path": "ISC - XI / English / Literature / Rhapsody"
+            },
+            {
+              "name": "Rhapsody - Sonnet 116.pdf",
+              "type": "file",
+              "id": "1w_PcL9M98opXPvtO3_rCzF-k75sj7zrO",
+              "path": "ISC - XI / English / Literature / Rhapsody"
+            },
+            {
+              "name": "Rhapsody - Strange Meeting.pdf",
+              "type": "file",
+              "id": "1LIU7Sh-V0p283zVW46uv0oadBBp_NZDG",
+              "path": "ISC - XI / English / Literature / Rhapsody"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "English - Literary Terms and Devices.pdf",
       "type": "file",
-      "id": "1Z4aka3B2DaKwKK-13NaRdnSAImfM2nfZ",
+      "id": "1tPeOVha8NRhR4IXimjHh6Pzak9jnNsEy",
       "path": "ISC - XI / English"
     }
   ]
