@@ -1,8 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
-import { BookOpen, Atom, FlaskConical, Sigma, Moon, Sun, Search, X } from "lucide-react";
+import { BookOpen, Atom, FlaskConical, Sigma, Moon, Sun, Search, X, Info, Heart, GitCommit, Copy, ExternalLink } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import FileExplorer from "@/components/FileExplorer";
 import SearchModal from "@/components/SearchModal";
+
+const GITHUB_REPO = "Jivaansh-Yadav/11-isc-resources";
+const DEVELOPER_NAME = "Jivaansh Yadav";
+const UPI_ID = "jivaanshyadav@ptyes";
+const UPI_LINK = "upi://pay?pa=jivaanshyadav@ptyes&pn=11th%20ISC%20Resources&cu=INR&tn=Donation%20for%2011th%20ISC%20Resources";
+const UPI_QR_SRC = "/upi_qr.png";
 
 // ---------------------
 // TYPE: folder/file tree structure used by the JSON data
@@ -26,11 +32,11 @@ const SUBJECTS: {
   file: string;
   Icon: typeof BookOpen;
 }[] = [
-  { key: "physics",   name: "Physics",   file: "/data/physics.json",   Icon: Atom },
-  { key: "chemistry", name: "Chemistry", file: "/data/chemistry.json", Icon: FlaskConical },
-  { key: "maths",     name: "Maths",     file: "/data/maths.json",     Icon: Sigma },
-  { key: "english",   name: "English",   file: "/data/english.json",   Icon: BookOpen },
-];
+    { key: "physics", name: "Physics", file: "/data/physics.json", Icon: Atom },
+    { key: "chemistry", name: "Chemistry", file: "/data/chemistry.json", Icon: FlaskConical },
+    { key: "maths", name: "Maths", file: "/data/maths.json", Icon: Sigma },
+    { key: "english", name: "English", file: "/data/english.json", Icon: BookOpen },
+  ];
 
 // ---------------------
 // External links
@@ -50,6 +56,8 @@ const Index = () => {
   });
   const [activeSubject, setActiveSubject] = useState<SubjectKey | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [donateOpen, setDonateOpen] = useState(false);
 
   // Global Ctrl+K / Cmd+K to open search
   useEffect(() => {
@@ -74,7 +82,7 @@ const Index = () => {
       fetch(s.file)
         .then((r) => r.json())
         .then((data: FileNode) => setSubjectsData((prev) => ({ ...prev, [s.key]: data })))
-        .catch(() => {/* ignore */});
+        .catch(() => {/* ignore */ });
     });
   }, []);
 
@@ -196,6 +204,31 @@ const Index = () => {
       </div>
 
       {/* ==================== HERO / HEADING ==================== */}
+      {/* ==================== TOP-LEFT CONTROLS (Info + Donate) ==================== */}
+      <div className="fixed top-6 left-6 z-50 flex items-center gap-2">
+        <button
+          onClick={() => setInfoOpen(true)}
+          className="p-3 rounded-full bg-card border border-border shadow-lg backdrop-blur-sm hover:scale-110 active:scale-95 transition-transform"
+          aria-label="Site info"
+          title="About / latest update"
+        >
+          <Info className="h-5 w-5 text-foreground" />
+        </button>
+        <button
+          onClick={() => setDonateOpen(true)}
+          className="p-3 rounded-full bg-card border border-border shadow-lg backdrop-blur-sm hover:scale-110 active:scale-95 transition-transform"
+          aria-label="Support / Donate"
+          title="Support / Donate"
+        >
+          <Heart className="h-5 w-5 text-foreground" />
+        </button>
+      </div>
+
+      {/* ==================== INFO MODAL ==================== */}
+      {infoOpen && <InfoModal onClose={() => setInfoOpen(false)} />}
+
+      {/* ==================== DONATE MODAL ==================== */}
+      {donateOpen && <DonateModal onClose={() => setDonateOpen(false)} />}
       <div className="text-center mb-12 animate-fade-in">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3 tracking-tight">
           11th ISC Resources
@@ -273,3 +306,172 @@ const SocialFooter = () => {
 };
 
 export default Index;
+// =============================================
+// INFO MODAL — fetches latest commit from GitHub and shows developer info
+// =============================================
+const InfoModal = ({ onClose }: { onClose: () => void }) => {
+  const [commit, setCommit] = useState<{
+    message: string;
+    date: string;
+    sha: string;
+    author: string;
+    url: string;
+  } | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/${GITHUB_REPO}/commits?per_page=1`)
+      .then((r) => {
+        if (!r.ok) throw new Error("GitHub API: " + r.status);
+        return r.json();
+      })
+      .then((data) => {
+        const c = data[0];
+        setCommit({
+          message: c.commit.message,
+          date: c.commit.author.date,
+          sha: c.sha.substring(0, 7),
+          author: c.commit.author.name,
+          url: c.html_url,
+        });
+      })
+      .catch((e) => setError(e.message));
+  }, []);
+
+  // Format date with seconds
+  const formatted = commit
+    ? new Date(commit.date).toLocaleString(undefined, {
+      year: "numeric", month: "short", day: "numeric",
+      hour: "2-digit", minute: "2-digit", second: "2-digit",
+    })
+    : "";
+
+  return (
+    <>
+      <div className="fixed inset-0 z-[80] bg-black/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
+      <div className="fixed z-[90] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-md animate-scale-in">
+        <div className="rounded-2xl border border-border bg-card shadow-2xl p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <Info className="h-5 w-5 text-primary" />
+              <h3 className="text-lg font-semibold text-foreground">About this site</h3>
+            </div>
+            <button onClick={onClose} className="p-1 rounded-lg hover:bg-accent">
+              <X className="h-4 w-4 text-muted-foreground" />
+            </button>
+          </div>
+
+          <p className="text-sm text-muted-foreground mb-4">
+            Developed by <span className="font-medium text-foreground">{DEVELOPER_NAME}</span>
+          </p>
+
+          <div className="rounded-xl border border-border bg-background p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <GitCommit className="h-4 w-4 text-primary" />
+              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                Latest commit
+              </span>
+            </div>
+
+            {error && <p className="text-sm text-destructive">Could not load: {error}</p>}
+            {!commit && !error && <p className="text-sm text-muted-foreground">Loading…</p>}
+
+            {commit && (
+              <>
+                <p className="text-sm text-foreground font-medium mb-1 break-words">
+                  {commit.message.split("\n")[0]}
+                </p>
+                <p className="text-xs text-muted-foreground mb-2">
+                  by {commit.author} · <span className="font-mono">{commit.sha}</span>
+                </p>
+                <p className="text-xs text-muted-foreground mb-3">
+                  Updated: <span className="text-foreground">{formatted}</span>
+                </p>
+                <a
+                  href={commit.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline"
+                >
+                  View on GitHub <ExternalLink className="h-3 w-3" />
+                </a>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+// =============================================
+// DONATE MODAL — UPI payment options
+// =============================================
+const DonateModal = ({ onClose }: { onClose: () => void }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyId = () => {
+    navigator.clipboard.writeText(UPI_ID);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <>
+      <div className="fixed inset-0 z-[80] bg-black/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
+      <div className="fixed z-[90] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] max-w-md animate-scale-in">
+        <div className="rounded-2xl border border-border bg-card shadow-2xl p-6">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+              <Heart className="h-5 w-5 text-primary" />
+              <h3 className="text-lg font-semibold text-foreground">Support / Donate</h3>
+            </div>
+            <button onClick={onClose} className="p-1 rounded-lg hover:bg-accent">
+              <X className="h-4 w-4 text-muted-foreground" />
+            </button>
+          </div>
+
+          <p className="text-sm text-muted-foreground mb-5">
+            If this site has helped you in your studies, consider supporting its development.
+            Every contribution helps keep these resources free and updated.
+          </p>
+
+          {/* QR Code */}
+          <div className="flex justify-center mb-4">
+            <div className="rounded-xl border border-border bg-background p-3">
+              <img
+                src={UPI_QR_SRC}
+                alt="UPI QR Code"
+                className="h-48 w-48 object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Pay with UPI app link */}
+          <a
+            href={UPI_LINK}
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 active:scale-[0.98] transition-all mb-3"
+          >
+            Pay with any UPI app
+            <ExternalLink className="h-4 w-4" />
+          </a>
+
+          {/* UPI ID copy */}
+          <button
+            onClick={copyId}
+            className="flex items-center justify-between w-full px-4 py-3 rounded-xl border border-border bg-background hover:bg-accent/40 transition-colors text-left"
+          >
+            <div>
+              <p className="text-xs text-muted-foreground">UPI ID</p>
+              <p className="text-sm font-mono text-foreground">{UPI_ID}</p>
+            </div>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Copy className="h-3.5 w-3.5" />
+              {copied ? "Copied!" : "Copy"}
+            </span>
+          </button>
+        </div>
+      </div>
+    </>
+  );
+};
