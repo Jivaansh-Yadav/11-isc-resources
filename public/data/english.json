@@ -17,6 +17,12 @@
           "type": "file",
           "id": "13Kv1NSKnUGC9wsmzEymJVuiMZQLcf6Mi",
           "path": "ISC - XI / English / Language"
+        },
+        {
+          "name": "English Language - Writing Techniques Full Guide.pdf",
+          "type": "file",
+          "id": "1K-75J0cNqWB2mvPQLwORcjJuooeInRrH",
+          "path": "ISC - XI / English / Language"
         }
       ]
     },
@@ -101,14 +107,20 @@
               "path": "ISC - XI / English / Literature / Rhapsody"
             }
           ]
+        },
+        {
+          "name": "English Literature - Literary Terms and Devices - Detailed Guide.pdf",
+          "type": "file",
+          "id": "1HMfzsAZQgi153HjsB_GfeVOz8lr8Jxbx",
+          "path": "ISC - XI / English / Literature"
+        },
+        {
+          "name": "English Literature - Literary Terms and Devices - Quick Reference.pdf",
+          "type": "file",
+          "id": "1KZNOdXJEkU1JoAll-hhjpdhFw6BArg-u",
+          "path": "ISC - XI / English / Literature"
         }
       ]
-    },
-    {
-      "name": "English - Literary Terms and Devices.pdf",
-      "type": "file",
-      "id": "1tPeOVha8NRhR4IXimjHh6Pzak9jnNsEy",
-      "path": "ISC - XI / English"
     }
   ]
 }
